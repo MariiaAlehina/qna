@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'acceptence_helper'
 
 feature 'Create question', %q{
   In order to get answer from community
@@ -10,10 +10,7 @@ feature 'Create question', %q{
 
   scenario 'Authenticated user create question' do
 
-    visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_on 'Log in'
+    sign_in(user)
 
     visit questions_path
 
@@ -22,7 +19,6 @@ feature 'Create question', %q{
     fill_in 'Body', with: 'text text'
     click_on 'Create'
 
-    #expect(page).to have_content 'Your question successfully created.'
   end
 
   scenario 'Non-authenticated user create question' do

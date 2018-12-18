@@ -1,4 +1,4 @@
-module ControllerMacros
+module ControllerMacross
   def sign_in_user
     before do
     @user = create(:user)

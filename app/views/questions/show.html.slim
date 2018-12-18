@@ -1,3 +1,12 @@
-/ <% if flash[:notice] %>
-/   <div class="notice"><%= flash[:notice] %></div>
-/ <% end %>
+h1= @question.title
+p= @question.body
+
+.answers
+ =render :answers
+
+= form_for (@question, @answer) remote: true do |f|
+  p
+    =f.label :body, 'Your answer'
+    .answer-errors
+    =f.text_area :body
+  p= f.submit 'Create'
