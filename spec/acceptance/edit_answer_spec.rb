@@ -1,1 +1,1 @@
-require_relative ''
+require_relative 'acceptence_helper'
