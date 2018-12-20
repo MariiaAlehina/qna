@@ -6,7 +6,7 @@ feature 'Answer editing', %q{
   I'd like at be able to edit my answer
 } do
 
-  given(:user) { create(:user) }
+  given!(:user) { create(:user) }
   given(:question) { create(:question) }
   given!(:answer) { create(:answer, question: question) }
 

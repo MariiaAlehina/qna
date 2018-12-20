@@ -45,8 +45,9 @@ gem 'pry'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'bootstrap-generators', '~> 3.3.4'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-
-
+gem 'carrierwave'
+gem 'better_errors'
+gem 'binding_of_caller'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
