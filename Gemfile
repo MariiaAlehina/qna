@@ -44,6 +44,8 @@ gem 'rubocop-rspec'
 gem 'pry'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'bootstrap-generators', '~> 3.3.4'
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -68,9 +70,11 @@ group :test do
   gem 'shoulda-matchers', '4.0.0.rc1'
   gem 'launchy'
   gem 'capybara-webkit', '1.15.1'
+  gem 'capybara-screenshot'
 end
 group :test, :development do
   gem 'rspec-rails'
+  gem 'smart_rspec'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'

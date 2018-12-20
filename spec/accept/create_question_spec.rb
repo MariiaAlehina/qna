@@ -1,4 +1,5 @@
-require 'acceptence_helper'
+# require 'acceptences/acceptences_helper'
+require_relative 'accept_helper'
 
 feature 'Create question', %q{
   In order to get answer from community
@@ -18,7 +19,6 @@ feature 'Create question', %q{
     fill_in 'Title', with: 'Test question'
     fill_in 'Body', with: 'text text'
     click_on 'Create'
-
   end
 
   scenario 'Non-authenticated user create question' do

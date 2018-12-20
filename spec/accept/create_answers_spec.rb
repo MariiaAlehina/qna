@@ -1,10 +1,13 @@
-require 'acceptence_helper'
+require_relative 'accept_helper'
 
+# require 'spec_helper'
+# require 'acceptences/acceptences_helper'
 feature 'User answer', %q{
   In order to exchange my knowledge
   As an authenticated user
   I want to be able to create answer
 } do
+
   given(:user) { create(:user) }
   given(:question) { create(:question) }
 
