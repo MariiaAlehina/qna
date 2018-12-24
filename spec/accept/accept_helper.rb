@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.configure do |config|
   Capybara.javascript_driver = :webkit
+  # Capybara.webserver =:puma
 
   config.extend AcceptenceMacross, type: :feature
 

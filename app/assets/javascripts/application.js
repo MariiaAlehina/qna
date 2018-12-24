@@ -12,9 +12,13 @@
 //
 //= reguire jquery
 //= require jquery_ujs
+//= require action_cable
 //= require jquery.remotipart
 //= require rails-ujs
 //= require twitter/bootstrap
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+var App = App ={};
+App.cable = ActionCable.createConsumer();
