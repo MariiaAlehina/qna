@@ -3,24 +3,14 @@ class AnswersController < ApplicationController
   before_action :find_question
   before_action :find_answer, only: [:update]
 
+  respond_to :js
+  respond_to :json, only: :create
+
   def create
     @answer = @question.answers.create(
         answer_params.merge(user: current_user)
     )
-    redirect_to @question
-    # @answer = @question.answers.build(answer_params)
-
-    # # respond_to do |format|
-    #   if @answer.save
-    #     redirect_to question_path
-    #     # format.html { render partial: 'questions/answers', layout: false }
-    #     # format.json { render json: @answer }
-    #   else
-    #     redirect_to questions_path
-    #     # format.html { render text: @answer.errors.full_messages.join("\n"), status: :unprocessable_entity }
-    #     # format.json { render text: @answer.errors.full_messages, status: :unprocessable_entity }
-    #   end
-
+    redirect_to question_path(@question)
   end
 
   def update

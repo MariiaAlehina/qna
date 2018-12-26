@@ -9,11 +9,18 @@ ul
   - @question.attachments.each do |a|
     li= link_to a.file.identifier, a.file.url
 
+  .comments
+
+
 = form_for ([@question, @question.answers.build]) do |f|
   p
     = f.label :body, 'Your answer'
     .answer-errors
     = f.text_area :body
-    p= f.submit 'Create'
 
+  p
+    = f.fields_for :attachments, @answer.attachments.build do |a|
+      = a.label :file
+      = a.file_field :file
 
+  p= f.submit 'Create'
