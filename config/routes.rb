@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users
+  use_doorkeeper
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
   concern :commentable do
     resource :comments
   end
   resources :questions, concerns: :commentable, shallow: true do
-    resources :answers, concerns: :commentable
+    resources :answers
   end
+
+  resources :answers, only: [], concerns: :commentable
   root to: "questions#index"
 
   mount ActionCable.server => '/cable'
