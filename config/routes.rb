@@ -14,6 +14,14 @@ Rails.application.routes.draw do
   root to: "questions#index"
 
   mount ActionCable.server => '/cable'
+
+  namespace :api do
+    namespace :v1 do
+      resource :profiles do
+        get :me, on: :collection
+      end
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
