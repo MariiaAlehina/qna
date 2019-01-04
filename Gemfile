@@ -83,6 +83,7 @@ group :test do
   gem 'launchy'
   gem 'capybara-webkit', '1.15.1'
   gem 'capybara-screenshot'
+  gem 'json_spec'
 end
 group :test, :development do
   gem 'rspec-rails'

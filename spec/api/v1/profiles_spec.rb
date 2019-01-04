@@ -17,10 +17,20 @@ describe 'Profile API' do
 
   context 'authorized' do
     let(:me) { create(:user) }
+    let(:access_token) { create(:access_token) }
+
+    before { get 'api/v1/profiles/me', format: :json, access_token: access_token.token }
 
     it 'returns 200 status' do
-      get 'api/v1/profiles/me', format: :json, access_token: '1234'
-      expect(response.status).to be_success
+      expect(response).to be_success
+    end
+
+    it 'contains email' do
+      expect(response.body).to be_json_eql(me.email.to_json).at_path('email')
+    end
+
+    it 'contain id' do
+      expect(response.body).to be_json_eql(me.id.to_json).at_path('id')
     end
   end
 end
