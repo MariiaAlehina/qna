@@ -1,7 +1,6 @@
-class Api::V1::ProfilesController < ApplicationController
-  doorkeeper_for :all
+class Api::V1::ProfilesController < Api::V1::BaseController
 
   def me
-    render nothing: true
+    respond_with current_user_owner
   end
 end
