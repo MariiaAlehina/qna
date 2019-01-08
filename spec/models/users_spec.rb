@@ -67,4 +67,13 @@ describe User do
       end
     end
   end
+
+  describe '.send_daily_digest' do
+    let(:users) { create_list(:user, 2) }
+
+    it 'should senf daily digest to all users' do
+      users.each { |user| expect(DailyMailer).t eq receive(:digest).with(user).and_call_original }
+      user.send_daily_digest
+    end
+  end
 end

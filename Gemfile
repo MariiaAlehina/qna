@@ -56,6 +56,11 @@ gem 'thin'
 gem 'cancancan', '~> 2.0'
 gem 'pundit'
 gem 'doorkeeper'
+# gem 'delayed_job_active_record'
+gem 'whenever'
+gem 'sidekiq'
+gem 'sinatra', '>= 1.3.0', require: nil
+gem 'sidetiq'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

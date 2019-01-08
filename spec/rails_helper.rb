@@ -6,6 +6,10 @@ require 'shoulda/matchers'
 require 'smart_rspec'
 require 'cancan/matchers'
 require 'pundit/rspec'
+require 'sidekiq/testing'
+
+Sidekiq::Testing.fake!
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
