@@ -7,6 +7,7 @@ require 'smart_rspec'
 require 'cancan/matchers'
 require 'pundit/rspec'
 require 'sidekiq/testing'
+require 'omniauth'
 
 Sidekiq::Testing.fake!
 
