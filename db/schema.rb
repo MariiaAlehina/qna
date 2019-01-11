@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_08_145649) do
+ActiveRecord::Schema.define(version: 2019_01_11_092825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,9 @@ ActiveRecord::Schema.define(version: 2019_01_08_145649) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "question_id"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
   create_table "attachments", force: :cascade do |t|
@@ -129,11 +130,15 @@ ActiveRecord::Schema.define(version: 2019_01_08_145649) do
     t.string "uid"
     t.boolean "admin"
     t.integer "reputation", default: 0
+    t.bigint "answer_id"
+    t.index ["answer_id"], name: "index_users_on_answer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "users"
   add_foreign_key "autorizations", "users"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
+  add_foreign_key "users", "answers"
 end
