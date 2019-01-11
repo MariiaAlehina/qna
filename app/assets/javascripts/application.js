@@ -15,6 +15,7 @@
 //= require action_cable
 //= require jquery.remotipart
 //= require rails-ujs
+//= require private_pub
 //= require twitter/bootstrap
 //= require activestorage
 //= require turbolinks
