@@ -11,7 +11,7 @@ Rails.application.configure do
   config.log_tags = [ :request_id ]
   config.action_mailer.perform_caching = false
   config.i18n.fallbacks = true
-  config.cache_store = :redis_store, "redis://localhost:6379/0/cache", { expires_in: 90.minutes }
+  config.cache_store = :redis_store, "redis://localhost:6379/0/cache"
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
